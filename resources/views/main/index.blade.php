@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - QuickStart Bootstrap Template</title>
+  <title>talentScope</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{ asset('template') }}/assets/img/favicon.png" rel="icon">
+  <link href="{{ asset('talentScope-img') }}/talentScope-mentol.svg" rel="icon">
   <link href="{{ asset('template') }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
