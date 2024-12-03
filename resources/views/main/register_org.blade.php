@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>talentScope Sign in</title>
+  <title>talentScope Sign Up</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -67,34 +67,92 @@
                 <div class="card w-75 h-75 shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <div class="row g-0 h-100">
                         <!-- Left Side: Image -->
-                        <div class="col-md-6 h-100">
+                        {{-- <div class="col-md-6 h-100">
                             <div class="h-100 w-100">
                                 <img src="{{ asset('template/assets/img/hero-bg-light.webp') }}" alt="Hero Image" 
                                      class="img-fluid rounded-start h-100 w-100" style="object-fit: cover;">
                             </div>
-                        </div>
+                        </div> --}}
                         
                         <!-- Right Side: Login Form -->
-                        <div class="col-md-6 h-100">
+                        <div class="col-md-12 h-100 ">
                             <div class="card-body d-flex flex-column justify-content-center h-100">
-                                <form method="POST" action="{{ route('talentScope.login') }}" class="h-100 d-flex flex-column justify-content-center">
+                                <form method="POST" action="{{ route('talentScope.login') }}" class="h-100 d-flex flex-column justify-content-center ">
                                     @csrf
-                                    <div>
-                                        <h3 class="text-center mb-4" style="color: black;">Welcome Back</h3>
-                                        <div class="form-floating mb-3">
+                                    <div class="row ">
+                                        <h3 class="text-center " style="color: black;">Sign up and start</h3>
+                                        <h3 class="text-center mb-4" style="color: black;">improving</h3>
+                                        {{-- Email --}}
+                                        <div class="form-floating mb-2 col-md-6">
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                                   id="floatingUsername" value="{{ old('email') }}" placeholder="Email" name="email" required autofocus>
-                                            <label for="floatingUsername">Email</label>
+                                                   id="floatingEmail" value="{{ old('email') }}" placeholder="Email" name="email" required autofocus>
+                                            <label for="floatingEmail">Email</label>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-floating mb-3">
+                                        {{-- Username --}}
+                                        <div class="form-floating mb-2 col-md-6">
+                                            <input type="username" class="form-control @error('username') is-invalid @enderror" 
+                                                   id="floatingUsername" value="{{ old('username') }}" placeholder="Username" name="username" required autofocus>
+                                            <label for="floatingUsername">Username</label>
+                                            @error('username')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- Password --}}
+                                        <div class="form-floating mb-2 col-md-6">
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" 
                                                    id="floatingPassword" placeholder="Password" name="password" required>
                                             <label for="floatingPassword">Password</label>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- Confirm Pass --}}
+                                        <div class="form-floating mb-2 col-md-6">
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                                                   id="floatingPassword" placeholder="Password" name="confirm_password" required>
+                                            <label for="floatingPassword">Confirm Password</label>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- Org Name --}}
+                                        <div class="form-floating mb-2 col-md-12">
+                                            <input type="text" class="form-control @error('password') is-invalid @enderror" 
+                                                   id="org_name" placeholder="Organization Name" name="confirm_password" required>
+                                            <label for="org_name">Organization Name</label>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- Org type --}}
+                                        <div class="form-floating mb-2 col-md-6">
+                                            <input type="text" class="form-control @error('password') is-invalid @enderror" 
+                                                   id="floatingPassword" placeholder="Password" name="confirm_password" required>
+                                            <label for="floatingPassword">Organization Type</label>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- SSM Reg Number --}}
+                                        <div class="form-floating mb-2 col-md-6">
+                                            <input type="number" class="form-control @error('ssm') is-invalid @enderror" 
+                                                   id="ssm" placeholder="Password" name="ssm" required>
+                                            <label for="ssm">SSM Registration Number</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -106,7 +164,7 @@
                                         <div class="d-grid gap-2">
                                             <button type="submit" id="submitlogin" 
                                                     class="btn btn-primary btn-block" style="background-color: #FFC75F">
-                                                Login
+                                                Sign Up
                                             </button>
                                         </div>
                                         <div class="mt-3 text-center">

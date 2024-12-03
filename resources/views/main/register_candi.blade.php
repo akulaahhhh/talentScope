@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>talentScope Sign in</title>
+  <title>talentScope Sign Up</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -80,21 +80,46 @@
                                 <form method="POST" action="{{ route('talentScope.login') }}" class="h-100 d-flex flex-column justify-content-center">
                                     @csrf
                                     <div>
-                                        <h3 class="text-center mb-4" style="color: black;">Welcome Back</h3>
+                                        <h3 class="text-center " style="color: black;">Sign up and start</h3>
+                                        <h3 class="text-center mb-4" style="color: black;">improving</h3>
+                                        {{-- Email --}}
                                         <div class="form-floating mb-3">
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                                   id="floatingUsername" value="{{ old('email') }}" placeholder="Email" name="email" required autofocus>
-                                            <label for="floatingUsername">Email</label>
+                                                   id="floatingEmail" value="{{ old('email') }}" placeholder="Email" name="email" required autofocus>
+                                            <label for="floatingEmail">Email</label>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
+                                        {{-- Username --}}
+                                        <div class="form-floating mb-3">
+                                            <input type="username" class="form-control @error('username') is-invalid @enderror" 
+                                                   id="floatingUsername" value="{{ old('username') }}" placeholder="Username" name="username" required autofocus>
+                                            <label for="floatingUsername">Username</label>
+                                            @error('username')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- Password --}}
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" 
                                                    id="floatingPassword" placeholder="Password" name="password" required>
                                             <label for="floatingPassword">Password</label>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        {{-- Confirm Pass --}}
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                                                   id="floatingPassword" placeholder="Password" name="confirm_password" required>
+                                            <label for="floatingPassword">Confirm Password</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -106,7 +131,7 @@
                                         <div class="d-grid gap-2">
                                             <button type="submit" id="submitlogin" 
                                                     class="btn btn-primary btn-block" style="background-color: #FFC75F">
-                                                Login
+                                                Sign Up
                                             </button>
                                         </div>
                                         <div class="mt-3 text-center">
