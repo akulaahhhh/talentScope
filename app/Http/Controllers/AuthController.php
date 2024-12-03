@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // Show the login form
-    
-    public function showLoginForm(){
-        return view('main.login');
-    }
-    // Handle the login request
     public function login(Request $request)
     {
         $request->validate([
