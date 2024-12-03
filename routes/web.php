@@ -21,7 +21,9 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::as('talentScope.')->group(function (){
     Route::get('/', [MainController::class, 'index'])->name('index');
-    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('login', [MainController::class, 'login'])->name('login');
+    Route::get('register', [MainController::class, 'register_candi'])->name('register_candi');
+    Route::get('register_org', [MainController::class, 'register_org'])->name('register_org');
+    Route::post('login', [AuthController::class, 'login']);
 
 });
