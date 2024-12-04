@@ -27,3 +27,23 @@ Route::as('talentScope.')->group(function (){
     Route::post('login', [AuthController::class, 'login']);
 
 });
+
+
+Route::middleware(['auth', 'OnlyAdmin'])->group(function () {
+
+    // Route::get('/admin/dashboard', 'AdminController@index');
+
+});
+
+Route::middleware(['auth', 'OnlyOrganizers'])->group(function () {
+
+    // Route::get('/admin/dashboard', 'AdminController@index');
+
+});
+
+Route::middleware(['auth', 'OnlyCandidates'])->group(function () {
+
+    // Route::get('/admin/dashboard', 'AdminController@index');
+
+});
+
