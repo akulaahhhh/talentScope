@@ -77,7 +77,7 @@
                         <!-- Right Side: Login Form -->
                         <div class="col-md-6 h-100">
                             <div class="card-body d-flex flex-column justify-content-center h-100">
-                                <form method="POST" action="{{ route('talentScope.login') }}" class="h-100 d-flex flex-column justify-content-center">
+                                <form method="POST" action="{{ route('talentScope.register_submit') }}" class="h-100 d-flex flex-column justify-content-center">
                                     @csrf
                                     <div>
                                         <h3 class="text-center " style="color: black;">Sign up and start</h3>
@@ -118,7 +118,7 @@
                                         {{-- Confirm Pass --}}
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" 
-                                                   id="floatingPassword" placeholder="Password" name="confirm_password" required>
+                                                   id="floatingPassword" placeholder="Password" name="password_confirmation" required>
                                             <label for="floatingPassword">Confirm Password</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
