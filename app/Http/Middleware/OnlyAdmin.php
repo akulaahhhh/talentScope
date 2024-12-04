@@ -19,6 +19,10 @@ class OnlyAdmin
         if (auth()->user() && auth()->user()->role == 'ADMIN') {
             return $next($request);
         }
+        // else
+        // {
+        //     return abort(403);
+        // }
         return redirect('/'); // Or another page
     }
 }

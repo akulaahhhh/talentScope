@@ -59,7 +59,7 @@ class AuthController extends Controller
         auth()->login($user);
 
         // Redirect to the desired page
-        return redirect()->route('talentscope.index')->with('success', 'Registration successful!');
+        return redirect()->route('talentScope.index')->with('success', 'Registration successful!');
     }
 
 
