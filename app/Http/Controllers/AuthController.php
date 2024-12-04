@@ -30,14 +30,16 @@ class AuthController extends Controller
         return redirect()->route('talentScope.index');
     }
 
-    public function register(Request $request)
+    public function register_candi(Request $request)
     {
         // Validate the request
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|confirmed',
+            // 'password' => 'required|string|min:8|confirmed',
         ]);
+        // var_dump($request->username);
 
         if ($validator->fails()) {
             return redirect()
@@ -48,7 +50,7 @@ class AuthController extends Controller
 
         // Create the user
         $user = User::create([
-            'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -57,7 +59,7 @@ class AuthController extends Controller
         auth()->login($user);
 
         // Redirect to the desired page
-        return redirect()->route('home')->with('success', 'Registration successful!');
+        return redirect()->route('talentscope.index')->with('success', 'Registration successful!');
     }
 
 
