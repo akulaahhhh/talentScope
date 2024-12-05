@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -13,16 +14,16 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string',
             // 'password' => 'required|string|min:8',
         ]);
 
         // Check the user credentials
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return back()->withErrors(['username' => 'The provided credentials are incorrect.']);
+            return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
 
         // Log the user in
@@ -54,6 +55,50 @@ class AuthController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => "CANDIDATES",
+        ]);
+
+        // Log the user in
+        auth()->login($user);
+
+        // Redirect to the desired page
+        return redirect()->route('talentScope.index')->with('success', 'Registration successful!');
+    }
+    public function register_org(Request $request)
+    {
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'username' =>'required',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|confirmed',
+            'org_name' => 'required',
+            'type' => 'required',
+            'ssm' => 'required',
+            // 'password' => 'required|string|min:8|confirmed',
+        ]);
+        // var_dump($request->username);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Create the user
+        $user = User::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => "ORGANIZER",
+        ]);
+
+        Organizer::create([
+            'user_id' => $user->id,
+            'org_name' => $request->org_name,
+            'ssm' => $request->ssm,
+            'type' => $request->type,
+
         ]);
 
         // Log the user in
