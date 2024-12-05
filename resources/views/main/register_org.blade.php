@@ -77,7 +77,7 @@
                         <!-- Right Side: Login Form -->
                         <div class="col-md-12 h-100 ">
                             <div class="card-body d-flex flex-column justify-content-center h-100">
-                                <form method="POST" action="{{ route('talentScope.login') }}" class="h-100 d-flex flex-column justify-content-center ">
+                                <form method="POST" action="{{ route('talentScope.register_org_submit') }}" class="h-100 d-flex flex-column justify-content-center ">
                                     @csrf
                                     <div class="row ">
                                         <h3 class="text-center " style="color: black;">Sign up and start</h3>
@@ -118,7 +118,7 @@
                                         {{-- Confirm Pass --}}
                                         <div class="form-floating mb-2 col-md-6">
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" 
-                                                   id="floatingPassword" placeholder="Password" name="confirm_password" required>
+                                                   id="floatingPassword" placeholder="Password" name="password_confirmation" required>
                                             <label for="floatingPassword">Confirm Password</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                                         {{-- Org Name --}}
                                         <div class="form-floating mb-2 col-md-12">
                                             <input type="text" class="form-control @error('password') is-invalid @enderror" 
-                                                   id="org_name" placeholder="Organization Name" name="confirm_password" required>
+                                                   id="org_name" placeholder="Organization Name" name="org_name" required>
                                             <label for="org_name">Organization Name</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -140,7 +140,7 @@
                                         {{-- Org type --}}
                                         <div class="form-floating mb-2 col-md-6">
                                             <input type="text" class="form-control @error('password') is-invalid @enderror" 
-                                                   id="floatingPassword" placeholder="Password" name="confirm_password" required>
+                                                   id="floatingPassword"  name="type" required>
                                             <label for="floatingPassword">Organization Type</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
