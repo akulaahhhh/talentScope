@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\IdentifyUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -37,6 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            IdentifyUser::class
         ],
 
         'api' => [
@@ -46,15 +48,12 @@ class Kernel extends HttpKernel
         ],
 
         'onlyCandi' => [
-        \App\Http\Middleware\IdentifyUser::class,
         \App\Http\Middleware\OnlyCandidates::class,
         ],
         'onlyOrg' => [
-        \App\Http\Middleware\IdentifyUser::class,
         \App\Http\Middleware\OnlyOrganizers::class,
         ],
         'onlyAdmin' => [
-        \App\Http\Middleware\IdentifyUser::class,
         \App\Http\Middleware\OnlyAdmin::class,
         ],
     ];
