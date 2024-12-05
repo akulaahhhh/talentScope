@@ -30,19 +30,19 @@ Route::as('talentScope.')->group(function (){
 
 
 
-    Route::middleware(['auth', 'OnlyAdmin'])->group(function () {
+    Route::middleware(['onlyAdmin'])->group(function () {
 
         // Route::get('/admin/dashboard', 'AdminController@index');
     
     });
     
-    Route::middleware(['auth', 'OnlyOrganizers'])->group(function () {
+    Route::middleware(['onlyOrg'])->group(function () {
     
         // Route::get('/admin/dashboard', 'AdminController@index');
-    
     });
     
-    Route::middleware(['auth', 'OnlyCandidates'])->group(function () {
+    Route::middleware(['onlyCandi'])->group(function () {
+        // Route::get('/', [MainController::class, 'index'])->name('index');
     
         // Route::get('/admin/dashboard', 'AdminController@index');
     
