@@ -19,6 +19,9 @@ class OnlyOrganizers
         if (auth()->user() && auth()->user()->role == 'ORGANIZER') {
             return $next($request);
         }
+        else{
+            return abort(403);
+        }
         return redirect('/'); // Or another page
     }
 }

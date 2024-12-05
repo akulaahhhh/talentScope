@@ -19,6 +19,9 @@ class OnlyCandidates
         if (auth()->user() && auth()->user()->role == 'CANDIDATES') {
             return $next($request);
         }
+        else{
+            return abort(403);
+        }
         return redirect('/'); // Or another page
     }
 }

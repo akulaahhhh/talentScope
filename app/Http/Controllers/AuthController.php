@@ -14,7 +14,8 @@ class AuthController extends Controller
     {
         $request->validate([
             'username' => 'required|string',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string',
+            // 'password' => 'required|string|min:8',
         ]);
 
         // Check the user credentials
