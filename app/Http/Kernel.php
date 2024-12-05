@@ -49,6 +49,14 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\IdentifyUser::class,
         \App\Http\Middleware\OnlyCandidates::class,
         ],
+        'onlyOrg' => [
+        \App\Http\Middleware\IdentifyUser::class,
+        \App\Http\Middleware\OnlyOrganizers::class,
+        ],
+        'onlyAdmin' => [
+        \App\Http\Middleware\IdentifyUser::class,
+        \App\Http\Middleware\OnlyAdmin::class,
+        ],
     ];
 
     /**
