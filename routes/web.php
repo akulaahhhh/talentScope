@@ -27,6 +27,7 @@ Route::as('talentScope.')->group(function (){
     Route::get('register_org', [MainController::class, 'register_org'])->name('register_org');
     Route::post('register_org', [AuthController::class, 'register_org'])->name('register_org_submit');
     Route::post('login', [AuthController::class, 'login']);
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
