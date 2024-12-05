@@ -33,13 +33,25 @@
                   <li><a href="#">Dropdown 4</a></li>
                 </ul>
               </li> --}}
-              
+              @if($is_logged_in === true)
+              <li><a href="{{route('talentScope.logout')}}">Logout</a></li>
+              <a class="btn-getstarted" href="index.html#about">Hi {{$user->username}}</a>
+
+              @else
+              <li><a href="{{route('talentScope.register_candi')}}">Register</a></li>
+              <li><a href="{{route('talentScope.login')}}">Login</a></li>
+              <a class="btn-getstarted" href="{{route('talentScope.register_org')}}">Post your Event!</a>
+              @endif
+
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
-    
-          <a class="btn-getstarted" href="index.html#about">Get Started</a>
-    
+          {{-- @if($is_logged_in === true)
+          <a class="btn-getstarted" href="index.html#about">Profile</a>
+              
+          @else
+              nyenyey
+          @endif --}}
         </div>
       </header>
 </div>
