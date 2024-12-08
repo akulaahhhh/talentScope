@@ -52,13 +52,13 @@
     <div class="hero-bg">
       </div>
     <main class="login">
-       
         <!-- Hero Section -->
-    <section id="hero" class="hero section p-0">
-        <div class="hero-bg">
-          <img src="{{ asset('template') }}/assets/img/hero-bg-light.webp" alt="">
-        </div>
-
+        <section id="hero" class="hero section p-0">
+            <div class="hero-bg">
+                <img src="{{ asset('template') }}/assets/img/hero-bg-light.webp" alt="">
+            </div>
+            
+            <x-alert />
 
 
 
