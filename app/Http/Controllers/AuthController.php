@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organizer;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -58,11 +59,16 @@ class AuthController extends Controller
             'role' => "CANDIDATES",
         ]);
 
+        event(new Registered($user));
         // Log the user in
-        auth()->login($user);
+        // auth()->login($user);
 
         // Redirect to the desired page
-        return redirect()->route('talentScope.index')->with('success', 'Registration successful!');
+        // return redirect()->route('talentScope.index')->with('success', 'Registration successful!');
+        // return response()->json([
+        //     'message' => 'Registration successful. Please verify your email.',
+        // ]);
+        return redirect()->route('verification.notice')->with('success', 'Registration successful!. Please verify your email.');
     }
     public function register_org(Request $request)
     {
