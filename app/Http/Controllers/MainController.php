@@ -20,6 +20,7 @@ class MainController extends Controller
     public function register_org() {
         return view('main.register_org');
     }
+    
 
     
 }
