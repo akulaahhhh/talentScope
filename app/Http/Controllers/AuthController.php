@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use function PHPUnit\Framework\isNull;
+
 class AuthController extends Controller
 {
     public function login(Request $request)
@@ -22,10 +24,22 @@ class AuthController extends Controller
 
         // Check the user credentials
         $user = User::where('email', $request->email)->first();
+        if(User::where('email', $request->email)->first())
+        {
+            $user = User::where('email', $request->email)->first();
+        }
+        elseif(User::where('username', $request->email)->first())
+        {
+            $user = User::where('username', $request->email)->first();
+        }
+
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
+        // if(is_null($user->email_varified_at))
+        // return redirect()->back(); 
+
 
         // Log the user in
         Auth::login($user);
@@ -68,7 +82,8 @@ class AuthController extends Controller
         // return response()->json([
         //     'message' => 'Registration successful. Please verify your email.',
         // ]);
-        return redirect()->route('verification.notice')->with('success', 'Registration successful!. Please verify your email.');
+        // return redirect()->route('verification.notice')->with('success', 'Registration successful!. Please verify your email.');
+        return redirect()->route('talentScope.login')->with('success', 'Registration successful!.');
     }
     public function register_org(Request $request)
     {
@@ -107,11 +122,12 @@ class AuthController extends Controller
 
         ]);
 
+        
         // Log the user in
-        auth()->login($user);
+        // auth()->login($user);
 
         // Redirect to the desired page
-        return redirect()->route('talentScope.index')->with('success', 'Registration successful!');
+        return redirect()->route('talentScope.login')->with('success', 'Registration successful!');
     }
 
 
