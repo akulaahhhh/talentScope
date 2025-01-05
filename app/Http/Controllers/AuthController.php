@@ -72,8 +72,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'role' => "CANDIDATES",
         ]);
-
-        event(new Registered($user));
+        // BAWAH NI FUNCTION DIA UNTUK SEND EMAIL
+        // event(new Registered($user));
         // Log the user in
         // auth()->login($user);
 
