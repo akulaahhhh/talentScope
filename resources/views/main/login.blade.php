@@ -82,9 +82,9 @@
                                     <div>
                                         <h3 class="text-center mb-4" style="color: black;">Welcome Back</h3>
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control @error('email') is-invalid @enderror" 
+                                            <input type="text" class="form-control @error('email') is-invalid @enderror" 
                                                    id="floatingUsername" value="{{ old('email') }}" placeholder="Email" name="email" required autofocus>
-                                            <label for="floatingUsername">Email</label>
+                                            <label for="floatingUsername">Username or Email</label>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
