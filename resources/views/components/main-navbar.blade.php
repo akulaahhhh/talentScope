@@ -38,7 +38,16 @@
                         @if ($user->role === 'CANDIDATES')
                             <a class="btn-getstarted" href="index.html#about">Hi {{ $user->username }}</a>
                         @elseif ($user->role === 'ORGANIZER')
-                            <a class="btn-getstarted" href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}">Hi {{ $user->username }}</a>
+                            {{-- <a class="btn-getstarted" href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}">Hi {{ $user->username }}</a> --}}
+                            <li class="dropdown"><a class="" href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}"><span>Hi {{ $user->username }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                  <li><a href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}">Profile</a></li>
+                                  
+                                  {{-- <li><a href="#">Dropdown 2</a></li>
+                                  <li><a href="#">Dropdown 3</a></li>
+                                  <li><a href="#">Dropdown 4</a></li> --}}
+                                </ul>
+                              </li>
                         @endif
                     @else
                         <li><a href="{{ route('talentScope.register_candi') }}">Register</a></li>
