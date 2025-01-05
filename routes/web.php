@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\OrgController;
+use App\Http\Middleware\OnlyOrganizers;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -62,15 +64,22 @@ Route::as('talentScope.')->group(function (){
 
 
     Route::middleware(['onlyAdmin'])->group(function () {
+        // Route::get('/admin/dashboard', 'AdminController@index');
+    
+    });
+    
+    Route::group([
+        'prefix' => 'organizer_dashboard',
+        'as' => 'organizer_dashboard.',
+        'middleware' => [OnlyOrganizers::class]
+    ], function () {
+        
+        Route::get('/', [OrgController::class, 'index'])->name('organizer_dashboard');
 
-        // Route::get('/admin/dashboard', 'AdminController@index');
-    
+
     });
-    
-    Route::middleware(['onlyOrg', 'verified'])->group(function () {
-    
-        // Route::get('/admin/dashboard', 'AdminController@index');
-    });
+    // Route::middleware(['onlyOrg'])->group(function () {
+    // });
     
     Route::middleware(['onlyCandi', 'verified'])->group(function () {
         // Route::get('/', [MainController::class, 'index'])->name('index');
