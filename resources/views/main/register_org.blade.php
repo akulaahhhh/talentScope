@@ -45,6 +45,10 @@
     #submitlogin:hover {
         background-color:rgb(38, 37, 56) !important;
     }
+
+    .form-floating>label {
+        margin-left: 10px;
+    }
   </style>
 </head>
 <body class="index-page">
