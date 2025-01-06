@@ -26,8 +26,8 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item active">
-                    <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                <li class="nav-item ">
+                    <a  href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#forms">
+                    <a href="{{route('talentScope.organizer_dashboard.view_upload_event')}}">
                         <i class="fas fa-pen-square"></i>
                         <p>Upload Program</p>
                     </a>
@@ -146,3 +146,13 @@
     </div>
 </div>
 <!-- End Sidebar -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = document.querySelectorAll(".nav-item a");
+      navLinks.forEach(link => {
+          if (link.href === window.location.href) {
+              link.closest(".nav-item").classList.add("active");
+          }
+      });
+  });
+</script>
