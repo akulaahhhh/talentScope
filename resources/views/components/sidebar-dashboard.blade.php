@@ -41,6 +41,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{route('talentScope.organizer_dashboard.view_profile_setting')}}">
+                        <i class="fas fa-pen-square"></i>
+                        <p>Profile Setting</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('talentScope.organizer_dashboard.view_upload_event')}}">
                         <i class="fas fa-pen-square"></i>
                         <p>Upload Program</p>
