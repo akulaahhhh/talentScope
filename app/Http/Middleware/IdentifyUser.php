@@ -28,6 +28,7 @@ class IdentifyUser
     }
 
     $request->merge([
+        'user' => $user,
         'is_logged_in' => $is_logged_in,
         'role' => $role,
     ]);
