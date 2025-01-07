@@ -17,6 +17,7 @@ class Organizer extends Model
         'ssm',
         'type',
         'description',
+        'address',
         'logo',
     ];
 
