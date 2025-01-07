@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('ssm')->nullable();
             $table->enum('type',['GLC','MNC','NGO','INSTITUTION','OTHERS'])->nullable();
             $table->string('description')->nullable();
-            $table->string('logo')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
 
 

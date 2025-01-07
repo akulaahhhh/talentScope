@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->enum('role', ['ORGANIZER', 'CANDIDATES', 'ADMIN'])->default('ORGANIZER');
             $table->timestamps();
         });
