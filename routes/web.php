@@ -76,6 +76,7 @@ Route::as('talentScope.')->group(function (){
         
         Route::get('/', [OrgController::class, 'index'])->name('organizer_dashboard');
         Route::get('upload-event', [OrgController::class, 'view_upload_event'])->name('view_upload_event');
+        Route::get('profile-setting', [OrgController::class, 'view_profile_setting'])->name('view_profile_setting');
 
 
     });
