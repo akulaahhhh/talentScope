@@ -138,6 +138,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('talentScope.login');
+        return redirect()->route('talentScope.login')->with('success', 'Logout successfull');
     }
 }
