@@ -17,7 +17,7 @@
 
                 <x-navbar-dashboard />
             </div>
-
+            <x-alert/>
             <div class="container">
                 <div class="page-inner">
                     <div class="page-header">
@@ -42,7 +42,7 @@
                                 <div class="card-header">
                                     <div class="card-title">About</div>
                                 </div>
-                                <form action="" method="POST">
+                                <form action="{{ route('talentScope.organizer_dashboard.update_profile_setting') }}" method="POST">
                                   @csrf
 
                                     <div class="card-body">
@@ -77,14 +77,14 @@
                                                 <label for="org">Organization Name</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="email" class="form-control" id="org"
+                                                <input type="text" class="form-control" id="org"
                                                     name="org_name" value="{{ $user->organizer->org_name }}" />
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="ssm">SSM Number</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="email" class="form-control" id="ssm" name="ssm"
+                                                <input class="form-control" id="ssm" name="ssm"
                                                     value="{{ $user->organizer->ssm }}" />
                                             </div>
                                             <div class="col-md-3">
@@ -125,6 +125,13 @@
                                                 <input type="text" class="form-control" id="address" name="address"
                                                     value="{{ $user->organizer->address }}" />
                                             </div>
+                                            {{-- <div class="col-md-3">
+                                                <label for="address">Change Password</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="address" name="address"
+                                                    value="{{ $user->organizer->address }}" />
+                                            </div> --}}
 
 
 
@@ -133,10 +140,37 @@
                                     </div>
                                     <div class="card-action">
                                         <button type="submit" class="btn btn-success">Save</button>
-                                        <button class="btn btn-danger">Cancel</button>
                                     </div>
                                 </form>
+                                
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">Change Password</div>
+                                </div>
+                                <form action="{{ route('talentScope.organizer_dashboard.update_password_org') }}" method="POST">
+                                    @csrf
+                                <div class="card-body">
+                                    <div class="row gy-3">
+                                        <div class="col-md-3">
+                                                <label for="address">Change Password</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="password" class="form-control" name="password"  placeholder="New Password" required/>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="password" class="form-control"  name="password_confirmation" placeholder="Confirm Password" required />
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="card-action">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                </div>
+                            </form>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
