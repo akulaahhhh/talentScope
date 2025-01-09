@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrgController;
+use App\Http\Controllers\Organization\ProfileSettingController;
 use App\Http\Middleware\OnlyOrganizers;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -77,6 +78,8 @@ Route::as('talentScope.')->group(function (){
         Route::get('/', [OrgController::class, 'index'])->name('organizer_dashboard');
         Route::get('upload-event', [OrgController::class, 'view_upload_event'])->name('view_upload_event');
         Route::get('profile-setting', [OrgController::class, 'view_profile_setting'])->name('view_profile_setting');
+        Route::post('update-profile-setting', [ProfileSettingController::class, 'update_profile_setting'])->name('update_profile_setting');
+        Route::post('change-password', [ProfileSettingController::class, 'update_password_org'])->name('update_password_org');
 
 
     });
