@@ -15,4 +15,7 @@ class OrgController extends Controller
     public function view_profile_setting() {
         return view('main.organizer_dashboard.profile_setting');
     }
+    public function form_template() {
+        return view('main.organizer_dashboard.form_template');
+    }
 }

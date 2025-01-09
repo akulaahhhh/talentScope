@@ -80,8 +80,9 @@ Route::as('talentScope.')->group(function (){
         Route::get('profile-setting', [OrgController::class, 'view_profile_setting'])->name('view_profile_setting');
         Route::post('update-profile-setting', [ProfileSettingController::class, 'update_profile_setting'])->name('update_profile_setting');
         Route::post('change-password', [ProfileSettingController::class, 'update_password_org'])->name('update_password_org');
-
-
+        
+        
+        Route::get('form-template', [OrgController::class, 'form_template'])->name('form_template');
     });
     // Route::middleware(['onlyOrg'])->group(function () {
     // });
