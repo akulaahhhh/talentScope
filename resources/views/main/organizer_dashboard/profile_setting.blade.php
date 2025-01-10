@@ -53,7 +53,7 @@
                                             <div class="col-md-9">
 
 
-                                                <span class="input-group-text" id="basic-addon1">@
+                                                <span class="input-group-text fw-bolder" id="basic-addon1">@
                                                     {{ $user->username }}</span>
                                             </div>
 
