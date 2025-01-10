@@ -11,8 +11,9 @@ class OrgType extends Model
     public const TYPES = [
         'MNC' => 'Multinational Corporation',
         'GLC' => 'Government-Linked Company',
-        'Institution' => 'Institution',
         'SME' => 'Small and Medium Enterprise',
-        'Others' => 'Others',
+        'NGO' => 'Non-Governmental Organization',
+        'INSTITUTION' => 'Institution',
+        'OTHERS' => 'Others',
     ];
 }
