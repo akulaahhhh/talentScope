@@ -310,9 +310,10 @@
             href="#"
             aria-expanded="false"
           >
+          {{-- avatar --}}
             <div class="avatar-sm">
               <img
-                src="{{ asset('template2') }}/assets/img/profile.jpg"
+                 src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('avatar/default-avatar.png') }}"
                 alt="..."
                 class="avatar-img rounded-circle"
               />
@@ -328,7 +329,7 @@
                 <div class="user-box">
                   <div class="avatar-lg">
                     <img
-                      src="{{ asset('template2') }}/assets/img/profile.jpg"
+                       src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('avatar/default-avatar.png') }}"
                       alt="image profile"
                       class="avatar-img rounded"
                     />
