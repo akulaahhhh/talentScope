@@ -53,4 +53,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Candidates::class);
     }
+
+
+
+    public function setUploadAvatarAttribute($file)
+    {
+        if ($file) {
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('avatar'), $fileName);
+            $this->attributes['avatar'] = $fileName;
+        }
+    }
 }
