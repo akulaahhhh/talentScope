@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CandiController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrgController;
 use App\Http\Controllers\Organization\ProfileSettingController;
+use App\Http\Controllers\Candidates\CandiProfileSettingController;
+use App\Http\Middleware\OnlyCandidates;
 use App\Http\Middleware\OnlyOrganizers;
 use App\Models\OrgType;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -85,15 +88,32 @@ Route::as('talentScope.')->group(function (){
         
         Route::get('form-template', [OrgController::class, 'form_template'])->name('form_template');
     });
-    // Route::middleware(['onlyOrg'])->group(function () {
-    // });
-    
-    Route::middleware(['onlyCandi', 'verified'])->group(function () {
-        // Route::get('/', [MainController::class, 'index'])->name('index');
-    
-        // Route::get('/admin/dashboard', 'AdminController@index');
-    
+
+
+
+
+
+    Route::group([
+        'prefix' => 'candidate_dashboard',
+        'as' => 'candidate_dashboard.',
+        'middleware' => [OnlyCandidates::class]
+    ], function () {
+        
+        Route::get('/', [CandiController::class, 'index'])->name('candidate_dashboard');
+        // Route::get('upload-event', [OrgController::class, 'view_upload_event'])->name('view_upload_event');
+        Route::get('profile-setting', [CandiController::class, 'view_profile_setting'])->name('view_profile_setting');
+        Route::post('update-profile-setting', [CandiProfileSettingController::class, 'update_profile_setting'])->name('update_profile_setting');
+        Route::post('change-password', [CandiProfileSettingController::class, 'update_password_candi'])->name('update_password_candi');
+        
+        
     });
+    
+    // Route::middleware(['onlyCandi', 'verified'])->group(function () {
+    //     // Route::get('/', [MainController::class, 'index'])->name('index');
+    
+    //     // Route::get('/admin/dashboard', 'AdminController@index');
+    
+    // });
 
 
 });

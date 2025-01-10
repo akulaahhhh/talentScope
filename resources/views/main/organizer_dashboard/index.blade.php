@@ -13,7 +13,7 @@
   <body>
     <div class="wrapper">
       {{-- 2 Sini Letak Sidebar --}}
-      <x-sidebar-dashboard/>
+      <x-worker-sidebar-dashboard/>
       
       <div class="main-panel">
         <div class="main-header">

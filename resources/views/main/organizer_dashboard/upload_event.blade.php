@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <x-sidebar-dashboard/>
+      <x-worker-sidebar-dashboard/>
 
       <div class="main-panel">
         <div class="main-header">
