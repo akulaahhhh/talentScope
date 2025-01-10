@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileSettingController extends Controller
 {
-    public function update_profile_setting(Request $request) {
+    public function update_profile_setting(Request $request)
+    {
 
         $user = $request->user;
 
@@ -19,9 +20,16 @@ class ProfileSettingController extends Controller
             'type' => 'required',
             'desc' => 'nullable',
             'address' => 'nullable',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048', // Validation for avatar
         ]);
 
         $user = User::find($user->id);
+
+        // If a file is uploaded, set it as the user's avatar
+        if ($request->hasFile('avatar')) {
+            // This will automatically trigger the setAvatarAttribute method in USer Model
+            $user->upload_avatar = $request->file('avatar');
+        }
 
         $user->update([
             'email' => $validated['email']
@@ -37,7 +45,8 @@ class ProfileSettingController extends Controller
             ->route('talentScope.organizer_dashboard.view_profile_setting')
             ->with('success', 'Profile setting saved succesfully.');
     }
-    public function update_password_org(Request $request) {
+    public function update_password_org(Request $request)
+    {
 
         $user = $request->user;
 
