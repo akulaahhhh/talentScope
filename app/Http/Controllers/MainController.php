@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrgType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,7 @@ class MainController extends Controller
         return view('main.register_candi');
     }
     public function register_org() {
-        return view('main.register_org');
+        return view('main.register_org',['org_types'=> OrgType::TYPES]);
     }
     
 

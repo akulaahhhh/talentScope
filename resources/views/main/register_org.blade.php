@@ -132,10 +132,10 @@
                                         </div>
                                         {{-- Org Name --}}
                                         <div class="form-floating mb-2 col-md-12">
-                                            <input type="text" class="form-control @error('password') is-invalid @enderror" 
+                                            <input type="text" class="form-control @error('org_name') is-invalid @enderror" 
                                                    id="org_name" placeholder="Organization Name" name="org_name" required>
                                             <label for="org_name">Organization Name</label>
-                                            @error('password')
+                                            @error('org_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -143,10 +143,15 @@
                                         </div>
                                         {{-- Org type --}}
                                         <div class="form-floating mb-2 col-md-6">
-                                            <input type="text" class="form-control @error('password') is-invalid @enderror" 
-                                                   id="floatingPassword"  name="type" required>
+                                            <select class="form-select form-control @error('type') is-invalid @enderror" id="defaultSelect"
+                                                    name="type" required>
+                                                        @foreach ($org_types as $key => $label)
+                                                        
+                                                            <option value= '{{ $key }}'> {{ $label }}</option>
+                                                        @endforeach
+                                                    </select>
                                             <label for="floatingPassword">Organization Type</label>
-                                            @error('password')
+                                            @error('type')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
