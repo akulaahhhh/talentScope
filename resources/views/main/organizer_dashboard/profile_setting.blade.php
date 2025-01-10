@@ -43,11 +43,26 @@
                                     <div class="card-title">About</div>
                                 </div>
                                 <form action="{{ route('talentScope.organizer_dashboard.update_profile_setting') }}"
-                                    method="POST">
+                                    method="POST"  enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="card-body">
                                         <div class="row gy-3">
+                                            <div class="col-md-3">
+                                                <label for="username">Avatar</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div id="avatar-container" style="margin-bottom: 15px;">
+                                                    <img id="avatar-preview"
+                                                        src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('avatar/default-avatar.png') }}"
+                                                        alt="Avatar Preview"
+                                                        style="width: 200px; height: 200px;border-radius:15px; object-fit: cover; border: 2px solid #ddd;">
+                                                </div>
+                                                <input type="file" class="form-control" id="avatar" name="avatar"
+                                                    accept="image/*">
+                                                <small class="form-text text-muted">Upload an image for your avatar
+                                                    (PNG, JPG, JPEG or WebP).</small>
+                                            </div>
                                             <div class="col-md-3">
                                                 <label for="username">Username</label>
                                             </div>
@@ -94,21 +109,11 @@
                                             <div class="col-md-9">
                                                 <select class="form-select form-control" id="defaultSelect"
                                                     name="type">
-                                                    <option value="MNC"
-                                                        {{ $user->organizer->type == 'MNC' ? 'selected' : '' }}>MNC
-                                                    </option>
-                                                    <option value="GLC"
-                                                        {{ $user->organizer->type == 'GLC' ? 'selected' : '' }}>GLC
-                                                    </option>
-                                                    <option value="NGO"
-                                                        {{ $user->organizer->type == 'NGO' ? 'selected' : '' }}>NGO
-                                                    </option>
-                                                    <option value="Institution"
-                                                        {{ $user->organizer->type == 'Institution' ? 'selected' : '' }}>
-                                                        Institution</option>
-                                                    <option value="Others"
-                                                        {{ $user->organizer->type == 'Others' ? 'selected' : '' }}>
-                                                        Others</option>
+                                                    @foreach ($org_types as $key => $label)
+                                                        <option value= '{{ $key }}'
+                                                            {{ $user->organizer->type == $key ? 'selected' : '' }}>
+                                                            {{ $label }}</option>
+                                                    @endforeach
                                                 </select>
 
                                             </div>
