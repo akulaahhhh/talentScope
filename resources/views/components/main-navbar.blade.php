@@ -36,7 +36,16 @@
                     @if ($is_logged_in === true)
                         <li><a href="{{ route('talentScope.logout') }}">Logout</a></li>
                         @if ($user->role === 'CANDIDATES')
-                            <a class="btn-getstarted" href="index.html#about">Hi {{ $user->username }}</a>
+                            {{-- <a class="btn-getstarted" href="index.html#about">Hi {{ $user->username }}</a> --}}
+                            <li class="dropdown"><a class="" href="{{route('talentScope.candidate_dashboard.candidate_dashboard')}}"><span>Hi {{ $user->username }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                              <ul>
+                                <li><a href="{{route('talentScope.candidate_dashboard.candidate_dashboard')}}">Profile</a></li>
+                                
+                                {{-- <li><a href="#">Dropdown 2</a></li>
+                                <li><a href="#">Dropdown 3</a></li>
+                                <li><a href="#">Dropdown 4</a></li> --}}
+                              </ul>
+                            </li>
                         @elseif ($user->role === 'ORGANIZER')
                             {{-- <a class="btn-getstarted" href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}">Hi {{ $user->username }}</a> --}}
                             <li class="dropdown"><a class="" href="{{route('talentScope.organizer_dashboard.organizer_dashboard')}}"><span>Hi {{ $user->username }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
