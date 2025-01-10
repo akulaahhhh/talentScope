@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrgController;
 use App\Http\Controllers\Organization\ProfileSettingController;
 use App\Http\Middleware\OnlyOrganizers;
+use App\Models\OrgType;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
