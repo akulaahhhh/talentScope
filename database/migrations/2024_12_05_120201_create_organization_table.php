@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('org_name');
             $table->string('ssm')->nullable();
-            $table->enum('type',['GLC','MNC','NGO','INSTITUTION','OTHERS'])->nullable();
+            $table->enum('type',['GLC','MNC','NGO','SME','INSTITUTION','OTHERS'])->nullable();
             $table->string('description')->nullable();
             $table->text('address')->nullable();
             $table->timestamps();
