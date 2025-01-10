@@ -17,7 +17,7 @@
 
                 <x-navbar-dashboard />
             </div>
-            <x-alert/>
+            <x-alert />
             <div class="container">
                 <div class="page-inner">
                     <div class="page-header">
@@ -42,8 +42,9 @@
                                 <div class="card-header">
                                     <div class="card-title">About</div>
                                 </div>
-                                <form action="{{ route('talentScope.organizer_dashboard.update_profile_setting') }}" method="POST">
-                                  @csrf
+                                <form action="{{ route('talentScope.organizer_dashboard.update_profile_setting') }}"
+                                    method="POST">
+                                    @csrf
 
                                     <div class="card-body">
                                         <div class="row gy-3">
@@ -142,7 +143,7 @@
                                         <button type="submit" class="btn btn-success">Save</button>
                                     </div>
                                 </form>
-                                
+
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -150,27 +151,31 @@
                                 <div class="card-header">
                                     <div class="card-title">Change Password</div>
                                 </div>
-                                <form action="{{ route('talentScope.organizer_dashboard.update_password_org') }}" method="POST">
+                                <form action="{{ route('talentScope.organizer_dashboard.update_password_org') }}"
+                                    method="POST">
                                     @csrf
-                                <div class="card-body">
-                                    <div class="row gy-3">
-                                        <div class="col-md-3">
+                                    <div class="card-body">
+                                        <div class="row gy-3">
+                                            <div class="col-md-3">
                                                 <label for="address">Change Password</label>
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="password" class="form-control" name="password"  placeholder="New Password" required/>
+                                                <input type="password" class="form-control" name="password"
+                                                    placeholder="New Password" required />
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="password" class="form-control"  name="password_confirmation" placeholder="Confirm Password" required />
+                                                <input type="password" class="form-control"
+                                                    name="password_confirmation" placeholder="Confirm Password"
+                                                    required />
                                             </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-action">
-                                    <button type="submit" class="btn btn-success">Save</button>
-                                </div>
-                            </form>
+                                    <div class="card-action">
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+                                </form>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
