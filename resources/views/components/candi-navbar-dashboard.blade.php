@@ -329,7 +329,7 @@
                 <div class="user-box">
                   <div class="avatar-lg">
                     <img
-                       src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('avatar/default-avatar.png') }}"
+                       src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('talentScope-img/default-avatar.png') }}"
                       alt="image profile"
                       class="avatar-img rounded"
                     />
