@@ -313,7 +313,7 @@
           {{-- avatar --}}
             <div class="avatar-sm">
               <img
-                 src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('avatar/default-avatar.png') }}"
+                 src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('talentScope-img/default-avatar.png') }}"
                 alt="..."
                 class="avatar-img rounded-circle"
               />
