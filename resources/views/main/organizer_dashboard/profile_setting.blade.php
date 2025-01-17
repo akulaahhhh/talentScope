@@ -54,7 +54,7 @@
                                             <div class="col-md-9">
                                                 <div id="avatar-container" style="margin-bottom: 15px;">
                                                     <img id="avatar-preview"
-                                                        src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('avatar/default-avatar.png') }}"
+                                                        src="{{ $user->avatar ? asset('avatar/' . $user->avatar) : asset('talentScope-img/default-avatar.png') }}"
                                                         alt="Avatar Preview"
                                                         style="width: 200px; height: 200px;border-radius:15px; object-fit: cover; border: 2px solid #ddd;">
                                                 </div>
